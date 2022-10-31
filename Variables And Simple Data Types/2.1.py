@@ -1,0 +1,2 @@
+message = "watermelon"
+print(message)
