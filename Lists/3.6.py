@@ -45,6 +45,6 @@ print(f"Hello {guest_list[0]}, {message}")
 print(f"Hello {guest_list[1]}, {message}")
 
 del guest_list[0]
-del guest_list[1]
+del guest_list[0]
 
 print(guest_list)
