@@ -5,4 +5,3 @@ if user_input > 8:
 else:
     print("Welcome to the restaurant")
     
-    
