@@ -141,3 +141,74 @@ for language in set(favorite_languages.values()):
 
 - wrapping the values() method with the `set()` function removes any duplicate items from the list.
 
+## Nesting
+
+- You can nest a set of dictionaries inside a list, a list of items as a value in a dictionary, or even a dictionary inside another dictionary. This is called nesting. You can nest dictionaries inside a list, a list of items as a value in a dictionary, or even a dictionary inside another dictionary. This is called nesting.
+
+
+### A List of Dictionary
+
+- You can store as many dictionaries as you want in a list. If you have more than one alien that needs to be tracked, you can make a list of dictionaries in which each dictionary contains all the information about one alien.
+
+```python
+alien_0 = {'color': 'green', 'points': 5}
+alien_1 = {'color': 'yellow', 'points': 10}
+alien_2 = {'color': 'red', 'points': 15}
+
+aliens = [alien_0, alien_1, alien_2]
+
+for alien in aliens:
+    print(alien)
+```
+
+### A List in a Dictionary
+
+- You can nest a list inside a dictionary any time you want more than one value to be associated with a single key in a dictionary. For example, if you ask people what their favorite languages are, you might store each person’s response in a list.
+
+```python
+favorite_languages = {
+    'jen': ['python', 'ruby'],
+    'sarah': ['c'],
+    'edward': ['ruby', 'go'],
+    'phil': ['python', 'haskell'],
+}
+
+for name, languages in favorite_languages.items():
+    if len(languages) > 1:
+        print(f"\n{name.title()}'s favorite languages are:")
+        for language in languages:
+            print(f"\t{language.title()}")
+    else:
+        print(f"\n{name.title()}'s favorite language is:")
+        for language in languages:
+            print(f"\t{language.title()}")
+```
+
+### A Dictionary in a Dictionary
+
+- You can nest a dictionary inside another dictionary, but your code can get complicated quickly when you do. For example, if you have several users for a website, each with a unique username, you can use the usernames as the keys in a dictionary. You can then store information about each user by using a dictionary as the value associated with their username. In the following listing, each key is a username, and the value associated with each username is a dictionary containing information about that user.
+
+```python
+
+users = {
+    'aeinstein': {
+        'first': 'albert',
+        'last': 'einstein',
+        'location': 'princeton',
+    },
+    'mcurie': {
+        'first': 'marie',
+        'last': 'curie',
+        'location': 'paris',
+    },
+}
+
+for username, user_info in users.items():
+    print(f"\nUsername: {username}")
+    full_name = f"{user_info['first']} {user_info['last']}"
+    location = user_info['location']
+
+    print(f"\tFull name: {full_name.title()}")
+    print(f"\tLocation: {location.title()}")
+```
+
