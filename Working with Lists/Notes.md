@@ -46,3 +46,62 @@ print(numbers)
 numbers = list(range(1,21,2))
 print(numbers)
 ```
+
+## List Comprehensions
+
+- A list comprehension allows you to generate this same list in just one line of code.
+
+```python
+squares = [value**2 for value in range(1,11)]
+print(squares)
+```
+
+## Some other Methods
+
+- min() - returns the smallest value in a list
+- max() - returns the largest value in a list
+- sum() - returns the sum of all the values in a list
+
+
+## Working with part of a list
+
+### Slicing a list
+
+- You can make a slice, which is a specific group of items in a list. To make a slice, you specify the index of the first and last elements you want to work with.
+
+```python
+players = ['charles', 'martina', 'michael', 'florence', 'eli']
+print(players[0:3])
+print(players[1:4])
+print(players[:4])
+print(players[2:])
+print(players[-3:])
+```
+
+- You can include a third value in the brackets indicating a slice. If a third value is included, this tells Python how many items to skip between items in the specified range.
+
+```python
+players = ['charles', 'martina', 'michael', 'florence', 'eli']
+print(players[0:4:2])
+```
+
+### Copying a List
+
+- You can copy a list by making a slice that includes the entire original list.
+
+```python
+my_foods = ['pizza', 'falafel', 'carrot cake']
+friend_foods = my_foods[:]
+print("My favorite foods are:")
+print(my_foods)
+print("\nMy friend's favorite foods are:")
+print(friend_foods)
+```
+
+- Doing the following code will tell python to associate the variable to the other variable making it a *reference* or a *new nam* rather than a copy
+
+```python
+my_foods = ['pizza', 'falafel', 'carrot cake']
+friend_foods = my_foods
+```
+
