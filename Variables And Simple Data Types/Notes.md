@@ -55,6 +55,7 @@ print(full_name)
 ```python
 full_name = "{} {}".format(first_name, last_name)
 ```
+
 # Numbers
 
 ## Integers
@@ -67,13 +68,11 @@ full_name = "{} {}".format(first_name, last_name)
 - Python calls any number with decimal point a float, even if there are no digit after the decimal point.
 - This term is used in most programming language, and it refers to the fact that a decimal point can appear at any position in a number.
 
-
 ## Integer and Floats
 
 - When you divide any two numbers, even if they are integers. It always results in a float.
 - If you mix an integer and a float in any other operation, you'll get a float as well.
 - Python defaults to a float in any operation that uses a float, even if the output is a whole number.
-
 
 ## Underscores in Numbers
 
