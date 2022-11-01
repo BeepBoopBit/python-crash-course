@@ -91,3 +91,15 @@ some_number = 12_003_412
 x,y,z = 0,0,0
 ```
 
+## Constants
+
+- A constant is like a variable whose value stays the same throughout the life of a program. Python convention is to use all capital letters for constants.
+
+## Comments
+
+- Comments are notes you add to your program to explain it in plain English. Python ignores comments when running your program.
+
+```python
+# This will print watermelon
+print("watermelon")
+```
