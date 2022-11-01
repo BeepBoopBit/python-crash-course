@@ -105,3 +105,30 @@ my_foods = ['pizza', 'falafel', 'carrot cake']
 friend_foods = my_foods
 ```
 
+## Tuples
+
+- A tuple looks just like a list except you use parentheses instead of square brackets. Once you define a tuple, you can access individual elements by using each item's index, just as you would for a list.
+- Lists work well for storing collections of items that can change throughout the life of a program The ability to modify lists is particularly important whe you're working with a list of users on a website or a list of characters in a game. However, sometimes you'll want to create a list iof items that cannot change. Tuples allow you to do just that. Python refers to values that cannot change as immutable, and an immutable list is called a tuple.
+
+```python
+dimensions = (200, 50)
+print(dimensions[0])
+print(dimensions[1])
+```
+
+- Tuples are technically defined by the presense of a comma; the parentheses make them look neater and more readable. If you want to define a tuple with one element, you need to include a trailing comma. `My-t = (3,)`
+
+### Writing over a tuple
+
+- Although you can't modify a tuple, you can assign a new value to a variable that represents a tuple.
+
+```python
+dimensions = (200, 50)
+print("Original dimensions:")
+for dimension in dimensions:
+    print(dimension)
+dimensions = (400, 100)
+print("\nModified dimensions:")
+for dimension in dimensions:
+    print(dimension)
+```

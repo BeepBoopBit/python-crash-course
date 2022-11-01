@@ -89,3 +89,5 @@ bicycles = ['trek', 'cannondale', 'redline', 'specialized']
 
 - **[]** - Square brackets indicate a list, and individual elements in the list are separated by commas.
 - **del** - Deletes an item from a list
+- len() - Returns the length of a list
+- sorted() - Returns a copy of a list in order
