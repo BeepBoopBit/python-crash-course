@@ -14,13 +14,14 @@ class Die:
 
 # Setting-up the values
 rolls = []
-die0 = Die(8)
-die1 = Die(8)
+die0 = Die()
+die1 = Die()
+die2 = Die()
 
 for i in range(5000):
-    rolls.append(die0.roll() + die1.roll())
+    rolls.append(die0.roll() + die1.roll() + die2.roll() )
     
-max_size = die0.num_sides + die1.num_sides
+max_size = die0.num_sides + die1.num_sides + die2.num_sides
 frequency = [rolls.count(i) for i in range(2,max_size+1)]
 
 x_value = [i for i in range(2,max_size+1)]
