@@ -161,3 +161,70 @@ while True:
     formatted_name = get_formatted_name(f_name, l_name)
     print(f"\nHello, {formatted_name}!")
 ```
+
+### Passing a List
+
+- You can pass any kind of information to a function. For example, you can pass a list of names to a function that greets each person in the list.
+
+```python
+def greet_users(names):
+    """Print a simple greeting to each user in the list."""
+    for name in names:
+        msg = f"Hello, {name.title()}!"
+        print(msg)
+        
+usernames = ['hannah', 'ty', 'margot']
+greet_users(usernames)
+```
+
+### Modifying a List in a Function
+
+- You can pass a list to a function just as you would any other argument, and the function can work with the list. Any changes the function makes to the list are permanent, allowing you to work efficiently even when you’re dealing with large amounts of data.
+
+```python
+def print_models(unprinted_designs, completed_models):
+    """
+    Simulate printing each design, until none are left.
+    Move each design to completed_models after printing.
+    """
+    while unprinted_designs:
+        current_design = unprinted_designs.pop()
+        # Simulate creating a 3D print from the design.
+        print(f"Printing model: {current_design}")
+        completed_models.append(current_design)
+def show_completed_models(completed_models):
+    """Show all the models that were printed."""
+    print("\nThe following models have been printed:")
+    for completed_model in completed_models:
+        print(completed_model)
+unprinted_designs = ['iphone case', 'robot pendant', 'dodecahedron']
+completed_models = []
+print_models(unprinted_designs, completed_models)
+show_completed_models(completed_models)
+```
+
+### Preventing a Function from MOdifying a List
+
+- To prevent a function from modifying a list, you can pass the function a copy of the list instead of the original list. The slice notation [:] makes this possible.
+
+```python
+def print_models(unprinted_designs, completed_models):
+    """
+    Simulate printing each design, until none are left.
+    Move each design to completed_models after printing.
+    """
+    while unprinted_designs:
+        current_design = unprinted_designs.pop()
+        # Simulate creating a 3D print from the design.
+        print(f"Printing model: {current_design}")
+        completed_models.append(current_design)
+def show_completed_models(completed_models):
+    """Show all the models that were printed."""
+    print("\nThe following models have been printed:")
+    for completed_model in completed_models:
+        print(completed_model)
+unprinted_designs = ['iphone case', 'robot pendant', 'dodecahedron']
+completed_models = []
+print_models(unprinted_designs[:], completed_models)
+show_completed_models(completed_models)
+```
