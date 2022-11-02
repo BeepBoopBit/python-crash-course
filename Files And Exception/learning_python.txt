@@ -1,0 +1,8 @@
+In Python I learned about what are variables and how to use them
+In Python I learned about what are data types 
+In Python I learned about what are lists, how to use them, and different methods and function used with them
+In Python I learned about what are dictionaries, how to use them, and different methods and function used with them
+In Python I learned about different kind of loops and how to apply them in different problems
+In Python I learned about parameters and arguments, what are positional parameters, what are arbitrary parameters, and how to use them in different scenarios
+In Python I learned about what functions are, how to use them, how to create one, what is a parameter and how it differ from arguments, and how to make life easier using function
+In Python I learned about classes and learned how to create one, use one, how inheritance work, what is the 'self' keyword use for, how to create methods, and how to put default values
