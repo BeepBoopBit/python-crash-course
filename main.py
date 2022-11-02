@@ -1,7 +1,5 @@
-
+import matplotlib.pyplot as plt
 from random import randint
-from sys import maxsize
-from turtle import title
 from plotly.graph_objs import Bar, Layout
 from plotly import offline
 
@@ -15,17 +13,17 @@ class Die:
 # Setting-up the values
 rolls = []
 die0 = Die()
-die1 = Die()
-die2 = Die()
 
 for i in range(5000):
-    rolls.append(die0.roll() * die1.roll() * die2.roll() )
+    rolls.append(die0.roll())
     
-max_size = die0.num_sides + die1.num_sides + die2.num_sides
-frequency = [rolls.count(i) for i in range(2,max_size+1)]
+max_size = die0.num_sides
+frequency = [rolls.count(i) for i in range(1,max_size+1)]
 
 x_value = [i for i in range(2,max_size+1)]
-data = [Bar(x=x_value, y=frequency)]
 
-my_layout = Layout(title="Rolls of Die three 6", xaxis={'title':'data'}, yaxis={'title':'frequency'})
-offline.plot({'data':data, 'layout':my_layout}, filename='d6.html')
+fix, ax = plt.subplots()
+ax.bar(x_value, frequency)
+plt.show()
+
+
