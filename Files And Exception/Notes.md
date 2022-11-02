@@ -83,3 +83,86 @@ with open(filename, 'w') as file_object:
 - The 'r' argument tells python that we want to open the file in read mode
 - The 'a' argument tells python that we want to open the file in append mode
 
+## Exceptions
+
+- An exception is an error that occurs while a program is running
+- Exceptions are handled with try-except blocks. The code that might cause an exception is put in a try block. The code that should execute if an exception occurs goes in the except block.
+
+```python
+try:
+    print(5/0)
+except ZeroDivisionError:
+    print("You can't divide by zero!")
+```
+
+### the else block
+
+- The code that should run only if the try block was successful goes in the else block.
+
+```python
+print("Give me two numbers, and I'll divide them.")
+print("Enter 'q' to quit.")
+
+while True:
+    first_number = input("\nFirst number: ")
+    if first_number == 'q':
+        break
+    second_number = input("Second number: ")
+    if second_number == 'q':
+        break
+    try:
+        answer = int(first_number) / int(second_number)
+    except ZeroDivisionError:
+        print("You can't divide by 0!")
+    else:
+        print(answer)
+```
+
+
+### Handling the FileNotFoundError exception
+
+- The FileNotFoundError exception is raised when python can't find a file
+
+```python
+filename = 'alice.txt'
+
+try:
+    with open(filename) as f_obj:
+        contents = f_obj.read()
+except FileNotFoundError:
+    msg = "Sorry, the file " + filename + " does not exist."
+    print(msg)
+```
+
+### Analyzing Text
+
+- The `split()` method breaks a line into a list of words
+
+```python
+filename = 'alice.txt'
+
+try:
+    with open(filename) as f_obj:
+        contents = f_obj.read()
+except FileNotFoundError:
+    msg = "Sorry, the file " + filename + " does not exist."
+    print(msg)
+else:
+    # Count the approximate number of words in the file.
+    words = contents.split()
+    num_words = len(words)
+    print("The file " + filename + " has about " + str(num_words) + " words.")
+```
+
+### Working with multiple files
+
+- This is not in the book
+- The `glob` module finds all the pathnames matching a specified pattern according to the rules used by the Unix shell
+
+```python
+import glob
+filenames = glob.glob('*.txt')
+for filename in filenames:
+    print(filename)
+```
+
