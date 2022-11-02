@@ -317,3 +317,20 @@ from module_name import function_0, function_1, function_2
 ```python
 from module_name import function_name as fn
 ```
+
+### Using as to Give a Module an Alias
+
+- You can also provide an alias for a module name. Here’s the general syntax for this approach:
+
+```python
+import module_name as mn
+```
+
+### Importing All Functions in a Module
+
+- You can tell Python to import every function in a module by using the asterisk (*) operator. Here’s the general syntax for this approach:
+
+```python
+from module_name import *
+```
+
