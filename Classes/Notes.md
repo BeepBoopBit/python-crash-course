@@ -468,3 +468,23 @@ my_tesla.battery.get_range()
 
 - Note: Battery has an aggregation relationship with the ElectricCar class
 
+
+## Importing Classes
+
+- You can store your classes in modules and then import the classes you need into your main program. Importing a class is a straightforward process. You write an import statement at the top of your file and then place the name of the class you want to import into the program.
+
+```python
+from car import Car
+my_new_car = Car('audi', 'a4', 2019)
+print(my_new_car.get_descriptive_name())
+```
+
+- You can import as many classes as you need into a program file. You can also import an entire module and then access the classes you need using dot notation.
+
+```python
+from car import Car, ElectricCar
+my_beetle = Car('volkswagen', 'beetle', 2019)
+print(my_beetle.get_descriptive_name())
+my_tesla = ElectricCar('tesla', 'roadster', 2019)
+print(my_tesla.get_descriptive_name())
+```
