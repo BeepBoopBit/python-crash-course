@@ -50,14 +50,8 @@ if __name__ == '__main__':
 | Method | Checks that|
 | --- | --- |
 | assertEqual(a, b) | a == b |
-| --- | --- |
 | assertNotEqual(a, b) | a != b |
-| --- | --- |
 | assertTrue(x)  | bool(x) is True |
-| --- | --- |
 | assertFalse(x) | bool(x) is False |
-| --- | --- |
 | assertIn(item, list) | item in list |
-| --- | --- |
 | assertNotIn(item, list) | item not in list |
-| --- | --- |
