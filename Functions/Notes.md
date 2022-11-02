@@ -228,3 +228,51 @@ completed_models = []
 print_models(unprinted_designs[:], completed_models)
 show_completed_models(completed_models)
 ```
+
+## Passing an Arbitrary Number of Arguments
+
+- Sometimes you won’t know ahead of time how many arguments a function needs to accept. Python allows a function to collect an arbitrary number of arguments from the calling statement.
+
+```python
+def make_pizza(*toppings):
+    """Print the list of toppings that have been requested."""
+    for topping in toppings:
+        print(f"- {topping}")
+make_pizza('pepperoni')
+make_pizza('mushrooms', 'green peppers', 'extra cheese')
+```
+
+- The asterisk in the parameter name *toppings tells Python to make an empty tuple called toppings and pack whatever values it receives into this tuple. The print statement in the function body produces output showing that Python can handle a function call with one value and a call with three values.
+
+### Mixing Positional and Arbitrary Arguments
+
+- If you want a function to accept several different kinds of arguments, the parameter that accepts an arbitrary number of arguments must be placed last in the function definition. Python matches positional and keyword arguments first and then collects any remaining arguments in the final parameter.
+
+```python
+def make_pizza(size, *toppings):
+    """Summarize the pizza we are about to make."""
+    print(f"\nMaking a {size}-inch pizza with the following toppings:")
+    for topping in toppings:
+        print(f"- {topping}")
+make_pizza(16, 'pepperoni')
+make_pizza(12, 'mushrooms', 'green peppers', 'extra cheese')
+```
+
+### Using Arbitrary Keyword Arguments
+
+- Sometimes you’ll want to accept an arbitrary number of arguments, but you won’t know ahead of time what kind of information will be passed to the function. In this case, you can write functions that accept as many key-value pairs as the calling statement provides.
+
+```python
+def build_profile(first, last, **user_info):
+    """Build a dictionary containing everything we know about a user."""
+    user_info['first_name'] = first
+    user_info['last_name'] = last
+    return user_info
+user_profile = build_profile('albert', 'einstein',
+                             location='princeton',
+                             field='physics')
+print(user_profile)
+```
+
+- The double asterisks before the parameter **user_info cause Python to create an empty dictionary called user_info and pack whatever name-value pairs it receives into this dictionary. This dictionary is then passed to the function.
+
