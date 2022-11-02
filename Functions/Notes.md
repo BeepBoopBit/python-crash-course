@@ -89,3 +89,75 @@ describe_pet('willie')
 describe_pet(pet_name='willie')
 describe_pet(animal_type='dog', pet_name='willie')
 ```
+
+## Returning Values
+
+- A function doesn’t always have to display its output directly. Instead, it can process some data and then return a value or set of values. The value the function returns is called a return value. The return statement takes a value from inside a function and sends it back to the line that called the function.
+
+```python
+
+def get_formatted_name(first_name, last_name):
+    """Return a full name, neatly formatted."""
+    full_name = f"{first_name} {last_name}"
+    return full_name.title()
+```
+
+### Returning a Simple Value
+
+- The following function returns the full name, neatly formatted.
+
+```python
+def get_formatted_name(first_name, last_name):
+    """Return a full name, neatly formatted."""
+    full_name = f"{first_name} {last_name}"
+    return full_name.title()
+```
+
+### Making an Argument Optional
+
+- You can make an argument optional by giving it an empty default value and then testing for its existence in the body of the function.
+
+```python
+def get_formatted_name(first_name, last_name,  middle_name = ' '):
+    """Return a full name, neatly formatted."""
+    if middle_name:
+        full_name = f"{first_name} {middle_name} {last_name}"
+    else:
+        full_name = f"{first_name} {last_name}"
+    return full_name.title()
+```
+
+### Returning a Dictionary
+
+- You can return any kind of value you need from a function. For example, you can return a dictionary that contains information about a person you’re describing.
+
+```python
+def build_person(first_name, last_name):
+    """Return a dictionary of information about a person."""
+    person = {'first': first_name, 'last': last_name}
+    return person
+```
+
+### Using a Function with a while Loop
+
+- You can use a function in a while loop to collect as much information as the user wants to enter.
+
+```python
+def get_formatted_name(first_name, last_name):
+    """Return a full name, neatly formatted."""
+    full_name = f"{first_name} {last_name}"
+    return full_name.title()
+
+# This is an infinite loop!
+while True:
+    print("\nPlease tell me your name:")
+    print("(enter 'q' at any time to quit)")
+    f_name = input("First name: ")
+    if f_name == 'q':
+        break
+    l_name = input("Last name: ")
+    if l_name == 'q':
+        break
+    formatted_name = get_formatted_name(f_name, l_name)
+    print(f"\nHello, {formatted_name}!")
+```
