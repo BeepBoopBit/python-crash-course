@@ -8,6 +8,7 @@
 
 - Matplotlib
 - python3
+- Plotly
 
 ## Plotting a simple Line Graph
 
@@ -226,3 +227,46 @@ while True:
     if keep_running == 'n':
         break
 ```
+
+## Graphing with Plotly
+
+```python
+from random import randint
+from turtle import title
+from plotly.graph_objs import Bar, Layout
+from plotly import offline
+
+class Die:
+    def __init__(self, num_sides=6):
+        self.num_sides = num_sides
+    def roll(self):
+        return randint(1, self.num_sides)
+    
+
+# Setting-up the values
+rolls = []
+die = Die()
+for i in range(1000):
+    rolls.append(die.roll())
+
+# Analyze the results.
+frequencies = []
+for i in range(1, die.num_sides+1):
+    frequencies.append(rolls.count(i))
+    
+# Set up the x_values
+x_values = list(range(1,die.num_sides+1))
+
+# Create the Bar chart
+data = [Bar(x=x_values, y=frequencies)]
+
+# Set the title and labels
+x_axis_config = {'title': 'Result'}
+y_axis_config = {'title': 'Frequency of Result'}
+my_layout = Layout(title='Results of rolling one D6 1000 times',
+                   xaxis=x_axis_config, yaxis=y_axis_config)
+
+# Plot the chart
+offline.plot({'data': data, 'layout': my_layout}, filename='d6.html')
+```
+
