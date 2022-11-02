@@ -276,3 +276,44 @@ print(user_profile)
 
 - The double asterisks before the parameter **user_info cause Python to create an empty dictionary called user_info and pack whatever name-value pairs it receives into this dictionary. This dictionary is then passed to the function.
 
+## Storing your Functions in Modules
+
+- A module is a file ending in .py that contains the code you want to import into your program. You can store your functions in a separate file called a module and then import that module into your main program. You can also store your functions in a module and then import specific functions you want into your main program.
+
+### Importing an Entire Module
+
+- To start importing functions, we first need to create a module. A module is a file ending in .py that contains the code you want to import into your program. Let’s make a module that contains the functions we wrote for making pizza. We’ll call this module pizza.py.
+
+
+```python
+# pizza.py
+def make_pizza(size, *toppings):
+    """Summarize the pizza we are about to make."""
+    print(f"\nMaking a {size}-inch pizza with the following toppings:")
+    for topping in toppings:
+        print(f"- {topping}")
+```
+
+```python
+# making_pizzas.py
+import pizza
+pizza.make_pizza(16, 'pepperoni')
+pizza.make_pizza(12, 'mushrooms', 'green peppers', 'extra cheese')
+```
+
+### Importing Specific Functions
+
+- You can also import a specific function from a module. Here’s the general syntax for this approach:
+
+```python
+from module_name import function_name
+from module_name import function_0, function_1, function_2
+```
+
+### Using as to Give a Function an Alias
+
+- You can also provide an alias for a function while importing it. An alias is an alternate name for a function or class that you can use to simplify your code. Here’s the general syntax for this approach:
+
+```python
+from module_name import function_name as fn
+```
