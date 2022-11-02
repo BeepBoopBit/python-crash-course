@@ -20,11 +20,11 @@ class RandomWalk():
 
             # Decide which direction to go and how far to go in that direction
             x_direction = choice([1, -1])
-            x_distance = choice([0, 1, 2, 3, 4])
+            x_distance = choice([0, 1, 2, 3, 4, 6, 7, 8])
             x_step = x_direction * x_distance
 
             y_direction = choice([1, -1])
-            y_distance = choice([0, 1, 2, 3, 4])
+            y_distance = choice([0, 1, 2, 3, 4, 6, 7, 8])
             y_step = y_direction * y_distance
 
             # Reject moves that go nowhere
@@ -40,16 +40,19 @@ class RandomWalk():
 
 while True:
     # Make a random walk, and plot the points
-    rw = RandomWalk(5000)
+    rw = RandomWalk(50000)
     rw.fill_walk()
 
     # Set the size of the plotting window
     plt.figure(dpi=128, figsize=(10, 6))
 
     point_numbers = list(range(rw.num_points))
-    plt.plot(rw.x_values, rw.y_values)
+    plt.scatter(rw.x_values, rw.y_values, c=point_numbers, cmap=plt.cm.Blues, edgecolors='none', s=1)
 
-    # Remove the axes
+    # Emphasize the first and last points
+    plt.scatter(0, 0, c='green', edgecolors='none', s=100)
+    plt.scatter(rw.x_values[-1], rw.y_values[-1], c='red', edgecolors='none', s=100)
+
     plt.show()
 
     keep_running = input("Make another walk? (y/n): ")
