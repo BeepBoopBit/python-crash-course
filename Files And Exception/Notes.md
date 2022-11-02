@@ -166,3 +166,50 @@ for filename in filenames:
     print(filename)
 ```
 
+## Storing Data
+
+### Using json.dump() and json.load()
+
+- The `json.dump()` function takes two arguments: a piece of data to store and a file object it can use to store the data
+- The `json.load()` function takes a single argument: the file object it needs to read data from
+
+```python
+import json
+
+numbers = [2, 3, 5, 7, 11, 13]
+
+filename = 'numbers.json'
+with open(filename, 'w') as f_obj:
+    json.dump(numbers, f_obj)
+```
+
+```python
+import json
+
+filename = 'numbers.json'
+with open(filename) as f_obj:
+    numbers = json.load(f_obj) # ['2', '3', '5', '7', '11', '13']
+
+print(numbers)
+```
+
+### Saving and Reading User-Generated Data
+
+- The `input()` function pauses your program and waits for the user to enter some text
+
+```python
+import json
+username = input("What is your name? ")
+filename = 'username.json'
+with open(filename, 'w') as f_obj:
+    json.dump(username, f_obj)
+    print("We'll remember you when you come back, " + username + "!")
+```
+
+```python
+import json
+filename = 'username.json'
+with open(filename) as f_obj:
+    username = json.load(f_obj)
+    print("Welcome back, " + username + "!")
+```
