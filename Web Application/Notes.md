@@ -70,3 +70,75 @@ python manage.py migrate
 python manage.py runserver
 ```
 
+- After you input the command, go to the link provided by the Django and you will be able to see the project.
+
+## Starting an App
+
+- While the server is running, do the following command in another terminal:
+
+```bash
+python manage.py startapp learning-logs
+```
+
+- The command `startapp appname` tells Django to create the infrastructure needed to build an app. When you look in the project directory now. You'll see a new folder called learning_logs.
+
+### Defining Models
+
+- on the `models.py` file that Django created after running the `startapp` command. put the following information:
+
+```python
+from django.db import models
+
+class Topic(models.Model):
+    """A topic the user is learning about"""
+    text = models.CharField(max_length=200)
+    date_added = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.text
+
+```
+
+- A model tells Django how to work with the data that will be stored in the app. Code-wise, a model is just a class; it has attributes and methods, just like every class we've discussed.
+
+- The text attribute is a `CharField` -- a piece of data that's made up of characters, or text
+
+  - You use `CharField` when you want to store a small amount of text, such as a name, a title, or a city. When we define a `CharField` attribute, we have to tell Django how much space it should reserve in the database. We do this by passing a `max_length` argument to `CharField`. In this case, we've set the max_length to 200, which should be enough for most topics.
+
+- The date_added attribute is a `DateTimeField` -- a piece of data that represents a date and time. When we set `auto_now_add=True`, Django sets this attribute to the current date and time whenever the user creates a new topic.
+- To see the different kinds of fields you can use in a model, see the Django Model Field Reference at https://docs.djangoproject.com/en/2.2/ref/models/fields/. You won't need all the information right now, but it will be eextremely useful when you're developing your own apps.
+
+``` Activating Models ```
+
+- To use our models, we have to tell Django to include our app in the overall project. Open `settings.py`; you'll see a section that tells Django which apps are installed and work together in the project.
+
+
+```
+INSTALLED_APPS = [
+
+    # My APps
+    'learning_logs',
+    
+    # Default Django Apps
+    'django.contrib.admin',
+    ...
+]
+```
+
+- Next, we need to tell Django to modify the database so it can store information related to the model Topic. From the terminal, run the following command:
+
+```
+python manage.py makemigrations learning_logs
+```
+
+- The command `makemigrations` tells Django to prepare the database to store information related to the model Topic. The command `migrate` tells Django to create the database tables needed to store the information we're telling it to store.
+
+- Now after which, we'll apply the migrations to the database by running the command `python manage.py migrate`. This command tells Django to create the database tables needed to store the information we're telling it to store.
+
+- Whenever we want to modify the data that learning lgo manages, we'll follow the previous three steps, which are:
+
+1. Modify the models.py file
+2. Call `makemigrations` to the project
+3. call `migrate` to the project
+
+
